@@ -1,0 +1,284 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Movies Watchlist</title>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.2/css/bulma.min.css">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-eOJMYsd53ii+scO/bJGFsiCZc+5NDVN2yr8+0RDqr0Ql0h+rP48ckxlpbzKgwra6" crossorigin="anonymous">
+  <link rel="preconnect" href="https://fonts.gstatic.com">
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/themes/smoothness/jquery-ui.css">
+  <link rel="stylesheet" href="assets/css/styles.css">
+</head>
+
+<body>
+  <nav class="navbar flex-header" role="navigation" aria-label="main navigation">
+    <h1 class="header-title">Personal Cinema Playlist</h1>
+    <form id="search-form" class="header-form" action="index.html" method="post">
+      <input id="movie-search" class="input header-form-item" type="text" name="search" value="" placeholder="Type movie name!">
+      <button id="search-btn" class="button header-form-item header-btn" type="button" name="button">🔍</button>
+      <button id="quote-btn" class="button header-form-item header-btn quote-btn-mobile" type="button" name="button">Funny Quote</button>
+    </form>
+  </nav>
+  <main class="movieDisplay">
+    <aside class="accordion movie-list-container" id="movie-genre-list">
+      <h1 class="my-queue-title">My Queue</h1>
+      <div class="accordion-item">
+        <h2 class="accordion-header" id="genre-action">
+          <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseAction" aria-expanded="true" aria-controls="collapseAction">
+            Action
+          </button>
+        </h2>
+        <div id="collapseAction" class="accordion-collapse collapse show" aria-labelledby="genre-action" data-bs-parent="#movie-genre-list">
+          <div class="accordion-body">
+            <ul id="action-movies-list">
+              <!-- <li class="movie-list-item" data-id=""><span class="movie-list-item-text">Movie Name 1 </span><button type="button" class="delete-btn button">🗑</button></li>
+              <li class="movie-list-item" data-id=""><span class="movie-list-item-text">Movie Name 2 </span><button type="button" class="delete-btn button">🗑</button></li>
+              <li class="movie-list-item" data-id=""><span class="movie-list-item-text">Movie Name 3  </span><button type="button" class="delete-btn button">🗑</button></li> -->
+            </ul>
+          </div>
+        </div>
+      </div>
+      <div class="accordion-item">
+        <h2 class="accordion-header" id="genre-comedy">
+          <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseComedy" aria-expanded="false" aria-controls="collapseComedy">
+            Comedy
+          </button>
+        </h2>
+        <div id="collapseComedy" class="accordion-collapse collapse" aria-labelledby="genre-comedy" data-bs-parent="#movie-genre-list">
+          <div class="accordion-body">
+            <ul id="comedy-movies-list">
+              <!-- <li class="movie-list-item" data-id=""><span class="movie-list-item-text">Movie Name 1 </span><button type="button" class="delete-btn button">🗑</button></li>
+              <li class="movie-list-item" data-id=""><span class="movie-list-item-text">Movie Name 2 </span><button type="button" class="delete-btn button">🗑</button></li>
+              <li class="movie-list-item" data-id=""><span class="movie-list-item-text">Movie Name 3 </span><button type="button" class="delete-btn button">🗑</button></li> -->
+            </ul>
+          </div>
+        </div>
+      </div>
+      <div class="accordion-item">
+        <h2 class="accordion-header" id="genre-drama">
+          <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseDrama" aria-expanded="false" aria-controls="collapseDrama">
+            Drama
+          </button>
+        </h2>
+        <div id="collapseDrama" class="accordion-collapse collapse" aria-labelledby="genre-drama" data-bs-parent="#movie-genre-list">
+          <div class="accordion-body">
+            <ul id="drama-movies-list">
+              <!-- <li class="movie-list-item" data-id=""><span class="movie-list-item-text">Movie Name 1 </span><button type="button" class="delete-btn button">🗑</button></li>
+              <li class="movie-list-item" data-id=""><span class="movie-list-item-text">Movie Name 2 </span><button type="button" class="delete-btn button">🗑</button></li>
+              <li class="movie-list-item" data-id=""><span class="movie-list-item-text">Movie Name 3 </span><button type="button" class="delete-btn button">🗑</button></li> -->
+            </ul>
+          </div>
+        </div>
+      </div>
+      <div class="accordion-item">
+        <h2 class="accordion-header" id="genre-fantasy">
+          <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseFantasy" aria-expanded="false" aria-controls="collapseFantasy">
+            Fantasy
+          </button>
+        </h2>
+        <div id="collapseFantasy" class="accordion-collapse collapse" aria-labelledby="genre-fantasy" data-bs-parent="#movie-genre-list">
+          <div class="accordion-body">
+            <ul id="fantasy-movies-list">
+              <!-- <li class="movie-list-item" data-id=""><span class="movie-list-item-text">Movie Name 1 </span><button type="button" class="delete-btn button">🗑</button></li>
+              <li class="movie-list-item" data-id=""><span class="movie-list-item-text">Movie Name 2 </span><button type="button" class="delete-btn button">🗑</button></li>
+              <li class="movie-list-item" data-id=""><span class="movie-list-item-text">Movie Name 3 </span><button type="button" class="delete-btn button">🗑</button></li> -->
+            </ul>
+          </div>
+        </div>
+      </div>
+      <div class="accordion-item">
+        <h2 class="accordion-header" id="genre-horror">
+          <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseHorror" aria-expanded="false" aria-controls="collapseHorror">
+            Horror
+          </button>
+        </h2>
+        <div id="collapseHorror" class="accordion-collapse collapse" aria-labelledby="genre-horror" data-bs-parent="#movie-genre-list">
+          <div class="accordion-body">
+            <ul id="horror-movies-list">
+              <!-- <li class="movie-list-item" data-id=""><span class="movie-list-item-text">Movie Name 1 </span><button type="button" class="delete-btn button">🗑</button></li>
+              <li class="movie-list-item" data-id=""><span class="movie-list-item-text">Movie Name 2 </span><button type="button" class="delete-btn button">🗑</button></li>
+              <li class="movie-list-item" data-id=""><span class="movie-list-item-text">Movie Name 3 </span><button type="button" class="delete-btn button">🗑</button></li> -->
+            </ul>
+          </div>
+        </div>
+      </div>
+      <div class="accordion-item">
+        <h2 class="accordion-header" id="genre-romance">
+          <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseRomance" aria-expanded="false" aria-controls="collapseRomance">
+            Romance
+          </button>
+        </h2>
+        <div id="collapseRomance" class="accordion-collapse collapse" aria-labelledby="genre-romance" data-bs-parent="#movie-genre-list">
+          <div class="accordion-body">
+            <ul id="romance-movies-list">
+              <!-- <li class="movie-list-item" data-id=""><span class="movie-list-item-text">Movie Name 1 </span><button type="button" class="delete-btn button">🗑</button></li>
+              <li class="movie-list-item" data-id=""><span class="movie-list-item-text">Movie Name 2 </span><button type="button" class="delete-btn button">🗑</button></li>
+              <li class="movie-list-item" data-id=""><span class="movie-list-item-text">Movie Name 3 </span><button type="button" class="delete-btn button">🗑</button></li> -->
+            </ul>
+          </div>
+        </div>
+      </div>
+      <div class="accordion-item">
+        <h2 class="accordion-header" id="genre-thriller">
+          <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseThriller" aria-expanded="false" aria-controls="collapseThriller">
+            Thriller
+          </button>
+        </h2>
+        <div id="collapseThriller" class="accordion-collapse collapse" aria-labelledby="genre-thriller" data-bs-parent="#movie-genre-list">
+          <div class="accordion-body">
+            <ul id="thriller-movies-list">
+              <!-- <li class="movie-list-item" data-id=""><span class="movie-list-item-text">Movie Name 1 </span><button type="button" class="delete-btn button">🗑</button></li>
+              <li class="movie-list-item" data-id=""><span class="movie-list-item-text">Movie Name 2 </span><button type="button" class="delete-btn button">🗑</button></li>
+              <li class="movie-list-item" data-id=""><span class="movie-list-item-text">Movie Name 3 </span><button type="button" class="delete-btn button">🗑</button></li> -->
+            </ul>
+          </div>
+        </div>
+      </div>
+      <div class="accordion-item">
+        <h2 class="accordion-header" id="genre-western">
+          <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseWestern" aria-expanded="false" aria-controls="collapseWestern">
+            Western
+          </button>
+        </h2>
+        <div id="collapseWestern" class="accordion-collapse collapse" aria-labelledby="genre-western" data-bs-parent="#movie-genre-list">
+          <div class="accordion-body">
+            <ul id="western-movies-list">
+              <!-- <li class="movie-list-item" data-id=""><span class="movie-list-item-text">Movie Name 1</span><button type="button" class="delete-btn button">🗑</button></li>
+              <li class="movie-list-item" data-id=""><span class="movie-list-item-text">Movie Name 2</span><button type="button" class="delete-btn button">🗑</button></li>
+              <li class="movie-list-item" data-id=""><span class="movie-list-item-text">Movie Name 3</span><button type="button" class="delete-btn button">🗑</button></li> -->
+            </ul>
+          </div>
+        </div>
+      </div>
+    </aside>
+
+    <section class="movieInfo" id="movieInfo">
+      <h1 class="displayTitle" id="movieName">Movie Name</h1>
+      <div class="box">
+        <div class="movie-details-container" id="elcinDiv">
+          <div class="card-image">
+            <figure class="image is-4by3 movie-poster">
+              <img id="movie-details-poster" src="https://bulma.io/images/placeholders/1280x960.png" alt="Placeholder image">
+            </figure>
+          </div>
+          <div class="movie-details-content">
+            <p>Movie Year: <span id="movieYear">YYYY</span></p>
+            <p>Length: <span id="movieLength">hhmm</span></p>
+            <p>Genre: <span id="movieGenre">""</span></p>
+            <p>Cast: <span id="movieCast">"Actors"</span></p>
+            <p>Director: <span id="movieDirector">""</span></p>
+            <p>Producer: <span id="movieProducer">""</span></p>
+            <p>Imdb Rating: <span id="movieRating">""</span></p>
+            <p>Imdb ID: <span id="movieID">""</span></p>
+          </div>
+        </div>
+        <div class="review-container" id="lemusDiv">
+          <h2 class="card-content review-title" id="reviewHeader">My Review</h2>
+          <form class="card-content review-form" id="reviewBox">
+            <textarea id="reviewInput" class="review-textarea" placeholder="Type your review here!"></textarea>
+            <div class="card-content dropdown-selectors" id="starRating">
+              <label for="genres">Rating:</label>
+              <select name="rating" id="rating" class="option">
+                <option value="">Select Rating</option>
+                <option value="⭐">⭐</option>
+                <option value="⭐⭐">⭐⭐</option>
+                <option value="⭐⭐⭐">⭐⭐⭐</option>
+                <option value="⭐⭐⭐⭐">⭐⭐⭐⭐</option>
+                <option value="⭐⭐⭐⭐⭐">⭐⭐⭐⭐⭐</option>
+              </select>
+            </div>
+            <div class="card-content dropdown-selectors">
+              <label for="genres">Genre:</label>
+              <select name="genres" id="genres" class="option">
+                <option value="">Select Genre</option>
+                <option value="action">Action</option>
+                <option value="comedy">Comedy</option>
+                <option value="drama">Drama</option>
+                <option value="fantasy">Fantasy</option>
+                <option value="horror">Horror</option>
+                <option value="romance">Romance</option>
+                <option value="thriller">Thriller</option>
+                <option value="western">Western</option>
+              </select>
+            </div>
+
+            <div class="review-btn-container">
+              <button id="save-btn" class="button is-large review-btn" type="button" name="button">Save</button>
+              <button id="update-btn" class="button is-large review-btn" type="button" name="button">Update</button>
+              <button id="share-btn" class="button is-large review-btn" type="button" name="button">Share</button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <footer class="footer" id="howellDiv">
+    <p>Personal Cinema Playlist</p>
+    <p> Created By:
+      <span>
+        <a href="https://github.com/ElcinKoyuncu" target="blank"> Elcin Koyuncu,</a>
+        <a href="https://github.com/SaulBrightman/saulbrightman.github.io" target="blank"> Alan Canler,</a>
+        <a href="https://github.com/lpnrhowell" target="blank"> Robert Howell,</a>
+        <a href="https://github.com/jlarrazabal" target="blank"> Javier Larrazabal,</a>
+        <a href="https://github.com/rnl0396" target="blank"> Robert Lemus</a>
+        <span> © 2021</span>
+      </span>
+    </p>
+  </footer>
+
+  <div id="error" class="error-modal">
+    <h3>404</h3>
+    <p>The movie that you were looking for could not be found, please try again</p>
+  </div>
+
+  <div id="movies-modal" class="modal">
+    <div class="modal-background"></div>
+    <div class="modal-content">
+      <h3>Select the Movie you are looking for from the list below</h3>
+      <ul id="movie-modal-content" class="modal-ul">
+        <!-- List of movies matching search criteria -->
+      </ul>
+    </div>
+    <button class="modal-close is-large" aria-label="close"></button>
+  </div>
+
+  <div id="quote-modal" class="modal">
+    <div class="modal-background "></div>
+    <div class="modal-content quoteModal">
+      <h3 id="quoteLine"></h3>
+      <p>Anime: <span id="anime"></span></p>
+      <p>Character: <span id="character"></span></p>
+      <button id="modal-close-btn" class="button is-fullwidth is-danger is-outlined">Close</button>
+    </div>
+  </div>
+
+  <div id="missing-information" class="error-modal">
+    <h3>Missing required fields</h3>
+    <p>To save or update a movie, please select a movie from your queue or use the search bar in the header to look for a new movie. The genre field in the review form cannot be empty. Providing a review and rating is optional; the review and rating can be updated at any time in the future.</p>
+    <button id="mi-modal-close" class="button is-fullwidth is-danger is-outlined" type="button" name="button">Close</button>
+  </div>
+
+  <div id="cannot-share" class="error-modal">
+    <h3>Not possible to Share</h3>
+    <p>To share your review on Facebook, please open a movie from your list, or search for a movie using the search bar in the header. A review is required to post the review to Facebook</p>
+    <button id="cs-modal-close" class="button is-fullwidth is-danger is-outlined" type="button" name="button">Close</button>
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/js/bootstrap.bundle.min.js" integrity="sha384-JEW9xMcG8R+pH31jmWH6WWP0WintQrMb4s7ZOdauHnUtxwoG2vI5DkLtS3qm9Ekf" crossorigin="anonymous"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"></script>
+  <script src="assets/js/shareReview.js" charset="utf-8"></script>
+  <script src="assets/js/updateMovie.js" charset="utf-8"></script>
+  <script src="assets/js/removeMovie.js" charset="utf-8"></script>
+  <script src="assets/js/init.js" charset="utf-8"></script>
+  <script src="assets/js/addMovies.js" charset="utf-8"></script>
+  <script src="assets/js/renderReview.js" charset="utf-8"></script>
+  <script src="assets/js/script.js" charset="utf-8"></script>
+</body>
+
+</html>
